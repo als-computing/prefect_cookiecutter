@@ -1,4 +1,4 @@
-from prefect import task, Flow
+from prefect import task, flow
 
 # Load the Python code from the path provided by the user
 with open('{{ cookiecutter.code_file }}', 'r') as f:
@@ -7,15 +7,14 @@ with open('{{ cookiecutter.code_file }}', 'r') as f:
 # Dynamically create a task from the user's code
 @task
 def user_task():
-    """
-    Prefect task to execute the user-provided code.
-    """
+    """Prefect task to execute the user-provided code."""
     exec(user_code, globals())
 
 # Create a flow with the user's task
-with Flow('{{ cookiecutter.flow_name }}') as flow:
+@flow(name='{{ cookiecutter.project_slug }}-flow')
+def user_flow():
     user_task()
 
 # Run the flow
 if __name__ == '__main__':
-    flow.run()
+    user_flow()
