@@ -8,3 +8,4 @@ To run the Prefect flow, execute the following command:
 
 ```bash
 python flow.py
+```
