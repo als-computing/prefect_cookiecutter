@@ -1,0 +1,7 @@
+{
+    "project_name": "prefect_cookiecutter",
+    "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '_') }}",
+    "description": "A cookiecutter template for creating a new Prefect project",
+    "author_name": "ALS",
+    "code_file": "code.py"
+}
